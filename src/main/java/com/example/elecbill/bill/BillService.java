@@ -4,7 +4,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BillService {
+
+    private final BillRepository billRepository;
+
+    public BillService(BillRepository billRepository){
+        this.billRepository = billRepository;
+    }
+
     public String getBill(){
-        return "{\"fixed_cost\": \"100\", \"variable_cost\": \"300\"}";
+        int fixed_cost = billRepository.testVariableAboveValue(5);
+        int variable_cost = billRepository.testVariableAboveValue(15);
+        return String.format("{\"fixed_cost\": \"%d\", \"variable_cost\": \"%d\"}", fixed_cost, variable_cost);
+        
     }
 }
