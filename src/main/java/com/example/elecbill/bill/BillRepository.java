@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BillRepository extends JpaRepository<Bill, Long>{
-    @Procedure(name = "testVariableAboveValue")
-    Integer testVariableAboveValue(Integer inputValue);
+    @Procedure(name = "elecBillFixedCost")
+    Integer elecBillFixedCost(Integer inputValue);
+
+    @Procedure(name = "elecBillVariableCost")
+    Integer elecBillVariableCost(Integer inputValue);
 }

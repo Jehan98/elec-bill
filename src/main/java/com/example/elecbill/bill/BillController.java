@@ -19,7 +19,7 @@ public class BillController {
     @GetMapping
 	@CrossOrigin(origins = "http://localhost:4200")
 	public String getBill(@RequestParam("value") int requestData){
-		return billService.getBill();
+		return billService.getBill(requestData);
 	}
 
 }

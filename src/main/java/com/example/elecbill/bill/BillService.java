@@ -11,9 +11,9 @@ public class BillService {
         this.billRepository = billRepository;
     }
 
-    public String getBill(){
-        int fixed_cost = billRepository.testVariableAboveValue(5);
-        int variable_cost = billRepository.testVariableAboveValue(15);
+    public String getBill(Integer units){
+        Integer fixed_cost = billRepository.elecBillFixedCost(units);
+        Integer variable_cost = billRepository.elecBillVariableCost(units);
         return String.format("{\"fixed_cost\": \"%d\", \"variable_cost\": \"%d\"}", fixed_cost, variable_cost);
         
     }
